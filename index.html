@@ -37,18 +37,16 @@
         position: fixed;
         bottom: 20px;
         left: 20px;
-        background-color: #007bff; /* Blue background color */
-        color: white; /* White text color */
+        background-color: transparent;
+        color: white;
         padding: 10px 20px;
         border: none;
-        border-radius: 5px; /* Rounded corners */
         cursor: pointer;
         z-index: 1000;
       }
 
       #customButton:hover {
-        background-color: #0056b3; /* Darker blue on hover */
-        text-decoration: underline; /* Underline on hover */
+        text-decoration: underline;
       }
 
       /* Hide the VR button */
@@ -72,13 +70,15 @@
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
       <a-entity id="target" mindar-image-target="targetIndex: 0">
+        <!-- Adjust width and height based on video aspect ratio -->
         <a-plane
           material="src: #video"
           position="0 0 0"
-          height="1.5"
-          width="1"
-          rotation="0 0 0"
-          scale="1 1 1">
+          height="0.8"   <!-- Set height to fit the video -->
+          <width="1.6" />    <!-- Set width to maintain aspect ratio -->
+          <rotation="0 0 0" />
+          <scale="1 1 1" />
+          
         </a-plane>
       </a-entity>
     </a-scene>
@@ -88,7 +88,7 @@
       <div id="playPauseText">Play with Sound</div>
     </div>
 
-    <!-- Custom Button -->
+    <!-- Custom Transparent Button -->
     <button id="customButton" onclick="window.location.href='https://www.overlay-ai.com';">DEMO APP</button>
 
     <script>
